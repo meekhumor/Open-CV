@@ -2,6 +2,13 @@ import cv2 as cv
 import mediapipe as mp
 import time
 
+def rescaleFrame(frame, scale = 0.2):
+    # works for images, videos and live videos
+    width = int(frame.shape[1] * scale)
+    height = int(frame.shape[0] * scale)
+    dimensions = (width,height)
+
+    return cv.resize(frame, dimensions, interpolation = cv.INTER_AREA)
 class FaceDetector():
     def __init__(self, minDetectionCon=0.5):
 
@@ -57,13 +64,15 @@ class FaceDetector():
 
 
 def main():
-    cap = cv.VideoCapture("Videos/6.mp4")
+    cap = cv.VideoCapture("Videos\m_face1.mp4")
     pTime = 0
     detector = FaceDetector()
 
     while True:
         success, img = cap.read()
-        img, bboxs = detector.findFaces(img)
+        img_resized = rescaleFrame(img) # frame gets resized you can also provide scale to it
+
+        img, bboxs = detector.findFaces(img_resized)
         print(bboxs)
 
         cTime = time.time()
