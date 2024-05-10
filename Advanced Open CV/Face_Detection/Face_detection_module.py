@@ -1,4 +1,4 @@
-import cv as cv
+import cv2 as cv
 import mediapipe as mp
 import time
 
@@ -52,7 +52,7 @@ class FaceDetector():
         # Bottom Right  x1,y1
         cv.line(img, (x1, y1), (x1 - l, y1), (255, 0, 255), t)
         cv.line(img, (x1, y1), (x1, y1 - l), (255, 0, 255), t)
-        
+
         return img
 
 
