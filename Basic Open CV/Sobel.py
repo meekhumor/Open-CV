@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
-image = cv2.imread('Images/contour1.jpg')
+# image = cv2.imread('Images/contour1.jpg')
+image = cv2.imread('task3_pics\\tc2-3.png')
 
 # Sobel X filter
 # [1  0 -1]

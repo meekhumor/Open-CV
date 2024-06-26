@@ -1,6 +1,7 @@
 import cv2 as cv
 
-img = cv.imread('Images/bahubali.jpg')
+# img = cv.imread('Images/bahubali.jpg')
+img = cv.imread('task3_pics\\tc2-3.png')
 cv.imshow('real', img)
 
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)

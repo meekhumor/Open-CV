@@ -1,6 +1,7 @@
 import cv2 as cv
 
-img = cv.imread('Images/Convolution0.png')
+# img = cv.imread('Images/Convolution0.png')
+img = cv.imread('task3_pics\\tc2-3.png')
 cv.imshow('Tree', img)
 
 # Edge Cascade

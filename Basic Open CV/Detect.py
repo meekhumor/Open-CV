@@ -50,10 +50,11 @@ def detect_rectangle(image):
     return center_x, center_y
 
 # Open the video file
-cap = cv2.VideoCapture('moving_rectangle.avi')
+cap = cv2.VideoCapture('Videos\moving_rectangle.avi')
 
 # Initialize trackImage to store trajectory
 trackImage = np.zeros((1200, 1200, 3), np.uint8)
+
 
 while cap.isOpened():
     # Read a frame from the video

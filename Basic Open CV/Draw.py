@@ -1,7 +1,7 @@
 import cv2 as cv
 import numpy as np
 
-blank = np.zeros((500,500,3), dtype = 'uint8') # makes a blank image
+blank = np.zeros((500,500,3), dtype = 'uint8') # makes a blank image 
 # 3 is basically channels we are providing which is R G B
 cv.imshow('Blank', blank)
 
