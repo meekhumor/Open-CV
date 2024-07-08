@@ -64,13 +64,13 @@ class FaceDetector():
 
 
 def main():
-    cap = cv.VideoCapture("Videos\m_face1.mp4")
+    cap = cv.VideoCapture("Videos\Lip_reading.mp4")
     pTime = 0
     detector = FaceDetector()
 
     while True:
         success, img = cap.read()
-        img_resized = rescaleFrame(img) # frame gets resized you can also provide scale to it
+        img_resized = rescaleFrame(img,1) # frame gets resized you can also provide scale to it
 
         img, bboxs = detector.findFaces(img_resized)
         print(bboxs)
