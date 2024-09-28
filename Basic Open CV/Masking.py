@@ -1,8 +1,8 @@
 import cv2 as cv
 import numpy as np
 
-# img = cv.imread('Images/bahubali.jpg')
-img = cv.imread('task3_pics\\tc2-3.png')
+img = cv.imread('Images/bahubali.jpg')
+# img = cv.imread('task3_pics\\tc2-3.png')
 cv.imshow('real', img)
 
 blank = np.zeros(img.shape[:2], dtype='uint8')
