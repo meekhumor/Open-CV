@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 # Load, resize, and rotate the image
-img = cv2.imread('QR.jpeg', 0)
+img = cv2.imread('checkpixel.png', 0)
 resized_img = cv2.resize(img, (img.shape[1] // 2, img.shape[0] // 2))  # Resize to 50%
 rotated_img = cv2.rotate(resized_img, cv2.ROTATE_180)  # Rotate 180 degrees
 
@@ -86,6 +86,7 @@ def extract_segments(image, segment_width, segment_height, stride_width, stride_
     h, w = image.shape
     ans = ""
     binary_string = ""
+    flip_required = False 
 
     for x in range(0, w - segment_width + 1, stride_width):  # Move right (stride of 50)
         # Move down for even columns, up for odd columns
@@ -96,13 +97,18 @@ def extract_segments(image, segment_width, segment_height, stride_width, stride_
 
         for y in y_range:
             segment = image[y:y + segment_height, x:x + segment_width]
+
+            if flip_required:
+                segment = cv2.flip(segment, 0) 
+
             binary_code = generate_pixel_string(segment)
             text = binary_to_text_with_steps(binary_code)
             binary_string += binary_code
             ans += text
             segments.append(segment)
+        flip_required = not flip_required
         
-    return binary_string
+    return ans
 
 
 cv2.imshow("rotate", rotated_img)
