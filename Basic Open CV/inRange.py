@@ -1,0 +1,1 @@
+ mask = cv2.inRange(hsv, lower_color, upper_color)
