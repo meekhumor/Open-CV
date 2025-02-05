@@ -2,13 +2,13 @@ import cv2
 import numpy as np
 
 # Load the image
-image = cv2.imread("image.jpg")
+image = cv2.imread("Images/bahubali.jpg")
 
 # Convert image to HSV color space
 hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
 # Define the lower and upper range for a color (e.g., blue)
-lower_bound = np.array([100, 150, 50])   # Lower bound for blue in HSV
+lower_bound = np.array([100, 0, 0])   # Lower bound for blue in HSV
 upper_bound = np.array([140, 255, 255])  # Upper bound for blue in HSV
 
 # Create a mask using inRange
